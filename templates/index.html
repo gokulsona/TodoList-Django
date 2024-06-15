@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home-Todo{% endblock title %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block body%} 
+
+{% if success == True %}
+<div class="alert alert-success my-3" role="alert">
+  <p><strong>Success :</strong> Task has been Added to the List</p>
+</div>
+{% endif %}
+    <div class="container my-3">
+      <h3 class="text-center">Welcome to ToList - Add a Task</h3>
+      <form action="/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="text">TaskTitle</label>
+          <input type="text" class="form-control" id="title" name="title" >
+          
+        </div>
+        <div class="mb-4">
+          <label for="desc">Task describtion</label>
+          <textarea class="form-control" name="desc" id="desc" name="desc" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    {% endblock body %}
