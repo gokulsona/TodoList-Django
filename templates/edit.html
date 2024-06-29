@@ -10,22 +10,20 @@
 </div>
 {% endif %}
     <div class="container my-3">
-      <h3 class="text-center">Welcome to ToList - Add a Task</h3>
-      <form action="/" method="post">
+      <h3 class="text-center">Edit Your Task</h3>
+      <form action="/update/{{id}}" method='post'>
         {% csrf_token %}
         <div class="form-group">
           <label for="text">TaskTitle</label>
-          <input type="text" class="form-control" id="title" name="title" >
+          <input type="text" class="form-control" value={{ title }} id="title" name="title" >
           
         </div>
         <div class="mb-4">
-          <label for="desc">Task describtion</label>
-          <textarea class="form-control" name="desc" id="desc" name="desc" cols="30" rows="10"></textarea>
+          <label for="desc">Task description</label>
+          <textarea class="form-control" name="desc"  id="desc"  name="desc" cols="30" rows="10">{{ description }}</textarea>
         </div>
         <div class="container text-center">
-        <button type="submit" class="btn btn-primary text-center">Submit</button>
-            <a href="task" class="btn btn-warning">View List</a>
-            <a href="task1" class="btn btn-danger">Done List</a>
+        <button type="submit" class="btn btn-primary text-center">Edit</button>
       </div>
       </form>
     </div>
